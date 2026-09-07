@@ -1,0 +1,126 @@
+* {
+      padding: 0;
+      margin: 0;
+}
+
+html {
+      overflow: hidden;
+      cursor: url("arrow-small.png"), auto;
+}
+
+body {
+      font-family: Arial, Helvetica, sans-serif;
+      counter-reset: attack !important;
+}
+
+.checkme {
+      display: inline-block;
+      position: absolute;
+      margin-top: 100px;
+      left: -10%;
+      cursor: url("Target-icon-small.png"), auto;
+}
+
+.radioBtn {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      opacity: 0;
+}
+
+.inside {
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+      background: linear-gradient(to left, gray, green);
+      display: flex;
+}
+
+.inside::before {
+      content: "Click Me";
+      margin: auto;
+      color: white;
+      font-size: 10px;
+}
+
+.radioBtn:checked {
+      counter-increment: attack;
+}
+
+.radioBtn:checked~.inside {
+      opacity: 0;
+}
+
+.sum {
+      position: absolute;
+      font-size: 40px;
+      font-weight: bold;
+      top: 2%;
+      left: 40%;
+}
+
+.sum::after {
+      content: counter(attack) " / 5";
+}
+
+
+.checkme:nth-child(1) {
+      margin-top: 400px;
+      animation: move1 10s linear;
+}
+
+.checkme:nth-child(2) {
+      margin-top: 300px;
+      animation: move1 10s linear;
+      animation-delay: 2s;
+}
+
+.checkme:nth-child(3) {
+      margin-top: 100px;
+      animation: move1 10s linear;
+      animation-delay: 4s;
+}
+
+.checkme:nth-child(4) {
+      margin-top: 200px;
+      animation: move1 10s linear;
+      animation-delay: 6s;
+}
+
+.checkme:nth-child(5) {
+      margin-top: 350px;
+      animation: move1 10s linear;
+      animation-delay: 8s;
+}
+
+
+@keyframes move1 {
+      0% {
+            top: 0;
+      }
+      20% {
+            left: 20%;
+            top: 20%;
+            transform: scale(0.7);
+      }
+      40% {
+            left: 40%;
+            top: -20%;
+            transform: scale(1);
+      }
+      60% {
+            left: 60%;
+            top: 30%;
+            transform: scale(1.3);
+      }
+      80% {
+            left: 80%;
+            top: -10%;
+            transform: scale(1);
+      }
+      100% {
+            left: 110%;
+            top: 20%;
+            transform: scale(0.8);
+      }
+}
